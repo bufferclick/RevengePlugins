@@ -4,7 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>III — Infrequent, Insufficient or Inadequate?</title>
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="https://freesvg.org/img/Folder-1.png" />
+
+  <!-- Discord / Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="III — Infrequent, Insufficient or Inadequate?" />
+  <meta property="og:description" content="Batch your project files into clipboard-ready chunks. No uploads. No servers. Pure client-side magic. Made by BufferClick." />
+  <meta property="og:image" content="https://freesvg.org/img/Folder-1.png" />
+  <meta property="og:url" content="https://iii.pages.dev" />
+  <meta property="og:site_name" content="III by BufferClick" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="III — Infrequent, Insufficient or Inadequate?" />
+  <meta name="twitter:description" content="Batch your project files into clipboard-ready chunks. No uploads. Pure client-side." />
+  <meta name="twitter:image" content="https://freesvg.org/img/Folder-1.png" />
+
+  <!-- Discord sidebar color -->
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- SEO -->
+  <meta name="description" content="Batch your project files into clipboard-ready chunks. No uploads. No servers. Everything runs locally in your browser." />
+  <meta name="author" content="BufferClick" />
+
   <style>
     :root {
       --bg: #09090b;
@@ -49,7 +73,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── SVG Icons ── */
     .icon {
       display: inline-flex;
       align-items: center;
@@ -59,16 +82,11 @@
       flex-shrink: 0;
     }
 
-    .icon svg {
-      width: 100%;
-      height: 100%;
-    }
-
+    .icon svg { width: 100%; height: 100%; }
     .icon-lg { width: 22px; height: 22px; }
     .icon-xl { width: 28px; height: 28px; }
     .icon-sm { width: 14px; height: 14px; }
 
-    /* ── Header ── */
     .header {
       padding: 24px 0 28px;
       border-bottom: 1px solid var(--border);
@@ -115,6 +133,14 @@
       margin-top: 4px;
     }
 
+    .header-sub a {
+      color: var(--text2);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .header-sub a:hover { color: var(--text); text-decoration: underline; }
+
     .header-badge {
       display: inline-block;
       background: var(--surface3);
@@ -129,7 +155,6 @@
       margin-top: 10px;
     }
 
-    /* ── Cards ── */
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -153,7 +178,6 @@
 
     .card-title .icon { opacity: 0.5; }
 
-    /* ── File Picker ── */
     .file-picker-wrap {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -220,7 +244,6 @@
       margin-top: -4px;
     }
 
-    /* ── File List ── */
     .file-list-section {
       margin-top: 14px;
       display: none;
@@ -250,9 +273,7 @@
       font-weight: 600;
     }
 
-    .file-list-clear:hover {
-      background: rgba(239,68,68,0.15);
-    }
+    .file-list-clear:hover { background: rgba(239,68,68,0.15); }
 
     .search-bar {
       width: 100%;
@@ -315,17 +336,9 @@
       border-radius: 4px;
     }
 
-    .fstatus.ok {
-      color: var(--green);
-      background: var(--green-dim);
-    }
+    .fstatus.ok { color: var(--green); background: var(--green-dim); }
+    .fstatus.skip { color: var(--red); background: var(--red-dim); }
 
-    .fstatus.skip {
-      color: var(--red);
-      background: var(--red-dim);
-    }
-
-    /* ── Options ── */
     .options-grid {
       display: flex;
       flex-direction: column;
@@ -365,11 +378,15 @@
       transition: border-color 0.15s;
     }
 
-    select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2371717a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 34px; }
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2371717a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 34px;
+    }
 
     select:focus, input:focus { border-color: var(--text); }
 
-    /* ── Tags ── */
     .tag-input-wrap {
       display: flex;
       gap: 8px;
@@ -433,7 +450,6 @@
       padding: 6px 0;
     }
 
-    /* ── Presets ── */
     .preset-row {
       display: flex;
       flex-wrap: wrap;
@@ -479,7 +495,6 @@
       border-color: var(--red);
     }
 
-    /* ── Buttons ── */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -498,35 +513,12 @@
 
     .btn:active { transform: scale(0.98); }
     .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
-
-    .btn-primary {
-      background: var(--text);
-      color: var(--bg);
-    }
-
+    .btn-primary { background: var(--text); color: var(--bg); }
     .btn-primary:hover { opacity: 0.9; }
-
-    .btn-green {
-      background: var(--green);
-      color: #052e16;
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--text2);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--text);
-      background: var(--accent-dim);
-    }
-
-    .btn-sm {
-      padding: 9px 14px;
-      font-size: 12px;
-      border-radius: var(--radius-sm);
-    }
+    .btn-green { background: var(--green); color: #052e16; }
+    .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text2); }
+    .btn-outline:hover { border-color: var(--text); background: var(--accent-dim); }
+    .btn-sm { padding: 9px 14px; font-size: 12px; border-radius: var(--radius-sm); }
 
     .btn-row {
       display: flex;
@@ -536,7 +528,6 @@
 
     .btn-row .btn { flex: 1; }
 
-    /* ── Stats ── */
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -568,7 +559,6 @@
       font-weight: 600;
     }
 
-    /* ── Batch cards ── */
     .batch-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -586,11 +576,7 @@
       margin-bottom: 12px;
     }
 
-    .batch-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text);
-    }
+    .batch-title { font-size: 14px; font-weight: 700; color: var(--text); }
 
     .batch-meta {
       font-size: 11px;
@@ -610,7 +596,6 @@
       white-space: nowrap;
     }
 
-    /* ── Syntax-highlighted code view ── */
     .code-view {
       position: relative;
       margin-top: 10px;
@@ -635,16 +620,8 @@
       -moz-tab-size: 2;
     }
 
-    .code-view .line-file-label {
-      color: var(--cyan);
-      font-weight: 700;
-    }
-
-    .code-view .line-separator {
-      color: var(--muted2);
-    }
-
-    /* Syntax Colors */
+    .code-view .line-file-label { color: var(--cyan); font-weight: 700; }
+    .code-view .line-separator { color: var(--muted2); }
     .syn-keyword  { color: var(--purple); }
     .syn-string   { color: var(--green); }
     .syn-comment  { color: var(--muted); font-style: italic; }
@@ -657,7 +634,6 @@
     .syn-type     { color: var(--cyan); }
     .syn-skipped  { color: var(--muted); font-style: italic; }
 
-    /* Hidden textarea for copying */
     .hidden-textarea {
       position: absolute;
       left: -9999px;
@@ -667,7 +643,6 @@
       opacity: 0;
     }
 
-    /* ── Toggle ── */
     .toggle-wrap {
       display: flex;
       align-items: center;
@@ -739,7 +714,6 @@
 
     .hidden { display: none !important; }
 
-    /* ── Toast ── */
     .toast {
       position: fixed;
       bottom: 24px;
@@ -760,16 +734,30 @@
 
     .toast.show { transform: translateX(-50%) translateY(0); }
 
-    /* ── Scrollbar ── */
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: var(--surface4); border-radius: 999px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--muted2); }
+
+    .footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .footer a {
+      color: var(--text2);
+      text-decoration: none;
+    }
+
+    .footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
   <div class="header">
     <div class="header-top">
       <div class="header-logo">
@@ -777,40 +765,31 @@
       </div>
       <div>
         <h1>Infrequent, Insufficient or Inadequate?</h1>
-        <div class="header-sub">Made by BufferClick</div>
+        <div class="header-sub">Made by <a href="https://github.com/BufferClick" target="_blank">BufferClick</a></div>
       </div>
     </div>
     <span class="header-badge">All processing runs locally</span>
   </div>
 
-  <!-- File Picker -->
   <div class="card">
     <div class="card-title">
-      <span class="icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-      </span>
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></span>
       Select Files
     </div>
-
     <div class="file-picker-wrap">
       <label class="file-picker-btn">
         <input type="file" id="folderInput" webkitdirectory multiple />
-        <div class="picker-icon">
-          <img src="https://freesvg.org/img/Folder-1.png" alt="" />
-        </div>
+        <div class="picker-icon"><img src="https://freesvg.org/img/Folder-1.png" alt="" /></div>
         <span class="picker-label">Pick Folder</span>
         <span class="picker-sub">All files recursively</span>
       </label>
       <label class="file-picker-btn">
         <input type="file" id="filesInput" multiple />
-        <div class="picker-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%;opacity:0.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><polyline points="14 2 14 8 20 8"/></svg>
-        </div>
+        <div class="picker-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%;opacity:0.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><polyline points="14 2 14 8 20 8"/></svg></div>
         <span class="picker-label">Pick Files</span>
         <span class="picker-sub">Select individually</span>
       </label>
     </div>
-
     <div class="file-list-section" id="fileListSection">
       <div class="file-list-header">
         <span id="fileCountLabel">0 files</span>
@@ -821,15 +800,11 @@
     </div>
   </div>
 
-  <!-- Exclusion -->
   <div class="card">
     <div class="card-title">
-      <span class="icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg>
-      </span>
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg></span>
       Exclude Extensions
     </div>
-
     <div class="option-row">
       <label>Add extensions to exclude</label>
       <div class="tag-input-wrap">
@@ -838,13 +813,10 @@
       </div>
       <div class="hint">Comma-separated. Press Enter or click Add.</div>
     </div>
-
     <div class="tag-list" id="tagList">
-      <div class="empty-state">No exclusions — all file types will be included.</div>
+      <div class="empty-state">No exclusions — all file types included.</div>
     </div>
-
     <hr class="divider" />
-
     <div class="option-row">
       <label>Quick Presets</label>
       <div class="hint">Click to toggle. Active presets are highlighted.</div>
@@ -861,17 +833,12 @@
     </div>
   </div>
 
-  <!-- Options -->
   <div class="card">
     <div class="card-title">
-      <span class="icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-      </span>
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
       Options
     </div>
-
     <div class="options-grid">
-
       <div class="option-row">
         <label>Label Style</label>
         <select id="labelMode">
@@ -880,7 +847,6 @@
           <option value="both">file.1 — filename.ext</option>
         </select>
       </div>
-
       <div class="option-row">
         <label>Split Mode</label>
         <select id="splitMode">
@@ -889,550 +855,352 @@
           <option value="none">No split (single batch)</option>
         </select>
       </div>
-
       <div class="option-row" id="splitValueRow">
         <label id="splitValueLabel">Max characters per batch</label>
         <input type="number" id="splitValue" value="50000" min="1" />
         <div class="hint" id="splitHint">Files grouped until character limit is reached.</div>
       </div>
-
       <hr class="divider" />
-
       <div class="toggle-wrap">
         <div class="toggle-text">
           <div class="toggle-label">Skip binary files</div>
           <div class="toggle-sub">Auto-detect and skip unreadable binary content</div>
         </div>
-        <label class="toggle">
-          <input type="checkbox" id="skipBinary" checked />
-          <span class="toggle-slider"></span>
-        </label>
+        <label class="toggle"><input type="checkbox" id="skipBinary" checked /><span class="toggle-slider"></span></label>
       </div>
-
       <div class="toggle-wrap">
         <div class="toggle-text">
           <div class="toggle-label">Include placeholders for skipped</div>
           <div class="toggle-sub">Add [Skipped: filename] entries in output</div>
         </div>
-        <label class="toggle">
-          <input type="checkbox" id="includePlaceholder" />
-          <span class="toggle-slider"></span>
-        </label>
+        <label class="toggle"><input type="checkbox" id="includePlaceholder" /><span class="toggle-slider"></span></label>
       </div>
-
       <div class="toggle-wrap">
         <div class="toggle-text">
           <div class="toggle-label">Show code preview</div>
           <div class="toggle-sub">Display syntax-highlighted preview for each batch</div>
         </div>
-        <label class="toggle">
-          <input type="checkbox" id="showPreview" checked />
-          <span class="toggle-slider"></span>
-        </label>
+        <label class="toggle"><input type="checkbox" id="showPreview" checked /><span class="toggle-slider"></span></label>
       </div>
-
     </div>
   </div>
 
-  <!-- Build -->
   <button class="btn btn-primary" id="buildBtn">
-    <span class="icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-    </span>
+    <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
     Build Batches
   </button>
 
-  <!-- Output -->
   <div id="outputSection" class="hidden">
     <div class="section-title">Output</div>
-
     <div class="stats-grid">
-      <div class="stat-box">
-        <div class="val" id="statFiles">0</div>
-        <div class="key">Included</div>
-      </div>
-      <div class="stat-box">
-        <div class="val" id="statSkipped">0</div>
-        <div class="key">Skipped</div>
-      </div>
-      <div class="stat-box">
-        <div class="val" id="statBatches">0</div>
-        <div class="key">Batches</div>
-      </div>
+      <div class="stat-box"><div class="val" id="statFiles">0</div><div class="key">Included</div></div>
+      <div class="stat-box"><div class="val" id="statSkipped">0</div><div class="key">Skipped</div></div>
+      <div class="stat-box"><div class="val" id="statBatches">0</div><div class="key">Batches</div></div>
     </div>
-
     <button class="btn btn-primary" id="copyAllBtn">
-      <span class="icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-      </span>
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></span>
       Copy All Merged
     </button>
     <button class="btn btn-outline" id="downloadAllBtn" style="margin-top:8px;">
-      <span class="icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
-      </span>
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg></span>
       Download All as .txt
     </button>
-
     <div id="batchList"></div>
   </div>
 
-  <!-- Toast -->
+  <div class="footer">
+    III by <a href="https://github.com/BufferClick" target="_blank">BufferClick</a> — Your files never leave your device.
+  </div>
+
   <div class="toast" id="toast">Copied to clipboard</div>
 
 <script>
-  // ── Presets ──
-  const PRESETS = {
-    images:   ['.png','.jpg','.jpeg','.gif','.svg','.ico','.webp','.bmp','.tiff','.tif'],
-    videos:   ['.mp4','.mkv','.avi','.mov','.wmv','.flv','.webm'],
-    audio:    ['.mp3','.wav','.ogg','.flac','.aac','.wma','.m4a'],
-    archives: ['.zip','.tar','.gz','.rar','.7z','.bz2','.xz','.zst'],
-    binaries: ['.exe','.bin','.dll','.so','.dylib','.apk','.deb','.rpm','.msi','.dmg','.iso'],
-    docs:     ['.pdf','.doc','.docx','.xls','.xlsx','.ppt','.pptx','.odt','.ods'],
-    fonts:    ['.ttf','.otf','.woff','.woff2','.eot'],
-  };
+  const PRESETS={images:['.png','.jpg','.jpeg','.gif','.svg','.ico','.webp','.bmp','.tiff','.tif'],videos:['.mp4','.mkv','.avi','.mov','.wmv','.flv','.webm'],audio:['.mp3','.wav','.ogg','.flac','.aac','.wma','.m4a'],archives:['.zip','.tar','.gz','.rar','.7z','.bz2','.xz','.zst'],binaries:['.exe','.bin','.dll','.so','.dylib','.apk','.deb','.rpm','.msi','.dmg','.iso'],docs:['.pdf','.doc','.docx','.xls','.xlsx','.ppt','.pptx','.odt','.ods'],fonts:['.ttf','.otf','.woff','.woff2','.eot']};
 
-  // ── State ──
-  let allFiles = [];
-  let lastBatches = [];
-  const excludedExts = new Set();
-  const activePresets = new Set();
+  let allFiles=[];
+  let lastBatches=[];
+  const excludedExts=new Set();
+  const activePresets=new Set();
 
-  // ── Elements ──
-  const folderInput     = document.getElementById('folderInput');
-  const filesInput      = document.getElementById('filesInput');
-  const fileListSection = document.getElementById('fileListSection');
-  const fileListInner   = document.getElementById('fileListInner');
-  const fileCountLabel  = document.getElementById('fileCountLabel');
-  const clearFilesBtn   = document.getElementById('clearFilesBtn');
-  const searchInput     = document.getElementById('searchInput');
-  const labelModeEl     = document.getElementById('labelMode');
-  const splitModeEl     = document.getElementById('splitMode');
-  const splitValueEl    = document.getElementById('splitValue');
-  const splitValueRow   = document.getElementById('splitValueRow');
-  const splitValueLabel = document.getElementById('splitValueLabel');
-  const splitHintEl     = document.getElementById('splitHint');
-  const extInput        = document.getElementById('extInput');
-  const extAddBtn       = document.getElementById('extAddBtn');
-  const tagListEl       = document.getElementById('tagList');
-  const skipBinaryEl    = document.getElementById('skipBinary');
-  const showPreviewEl   = document.getElementById('showPreview');
-  const includePlaceholderEl = document.getElementById('includePlaceholder');
-  const buildBtn        = document.getElementById('buildBtn');
-  const outputSection   = document.getElementById('outputSection');
-  const copyAllBtn      = document.getElementById('copyAllBtn');
-  const downloadAllBtn  = document.getElementById('downloadAllBtn');
-  const batchListEl     = document.getElementById('batchList');
-  const toastEl         = document.getElementById('toast');
+  const folderInput=document.getElementById('folderInput');
+  const filesInput=document.getElementById('filesInput');
+  const fileListSection=document.getElementById('fileListSection');
+  const fileListInner=document.getElementById('fileListInner');
+  const fileCountLabel=document.getElementById('fileCountLabel');
+  const clearFilesBtn=document.getElementById('clearFilesBtn');
+  const searchInput=document.getElementById('searchInput');
+  const labelModeEl=document.getElementById('labelMode');
+  const splitModeEl=document.getElementById('splitMode');
+  const splitValueEl=document.getElementById('splitValue');
+  const splitValueRow=document.getElementById('splitValueRow');
+  const splitValueLabel=document.getElementById('splitValueLabel');
+  const splitHintEl=document.getElementById('splitHint');
+  const extInput=document.getElementById('extInput');
+  const extAddBtn=document.getElementById('extAddBtn');
+  const tagListEl=document.getElementById('tagList');
+  const skipBinaryEl=document.getElementById('skipBinary');
+  const showPreviewEl=document.getElementById('showPreview');
+  const includePlaceholderEl=document.getElementById('includePlaceholder');
+  const buildBtn=document.getElementById('buildBtn');
+  const outputSection=document.getElementById('outputSection');
+  const copyAllBtn=document.getElementById('copyAllBtn');
+  const downloadAllBtn=document.getElementById('downloadAllBtn');
+  const batchListEl=document.getElementById('batchList');
+  const toastEl=document.getElementById('toast');
 
-  // ── File Inputs ──
-  folderInput.addEventListener('change', () => mergeFiles(folderInput.files));
-  filesInput.addEventListener('change', () => mergeFiles(filesInput.files));
+  folderInput.addEventListener('change',()=>mergeFiles(folderInput.files));
+  filesInput.addEventListener('change',()=>mergeFiles(filesInput.files));
 
-  function mergeFiles(newFiles) {
-    const existing = new Set(allFiles.map(f => getKey(f)));
-    for (const f of Array.from(newFiles)) {
-      const key = getKey(f);
-      if (!existing.has(key)) { allFiles.push(f); existing.add(key); }
-    }
-    allFiles.sort((a, b) => getKey(a).toLowerCase().localeCompare(getKey(b).toLowerCase()));
+  function mergeFiles(nf){
+    const ex=new Set(allFiles.map(f=>getKey(f)));
+    for(const f of Array.from(nf)){const k=getKey(f);if(!ex.has(k)){allFiles.push(f);ex.add(k);}}
+    allFiles.sort((a,b)=>getKey(a).toLowerCase().localeCompare(getKey(b).toLowerCase()));
     renderFileList();
   }
 
-  function getKey(f) { return f.webkitRelativePath || f.name; }
+  function getKey(f){return f.webkitRelativePath||f.name;}
 
-  clearFilesBtn.addEventListener('click', () => {
-    allFiles = [];
-    folderInput.value = '';
-    filesInput.value = '';
-    renderFileList();
-  });
+  clearFilesBtn.addEventListener('click',()=>{allFiles=[];folderInput.value='';filesInput.value='';renderFileList();});
+  searchInput.addEventListener('input',()=>renderFileList());
 
-  searchInput.addEventListener('input', () => renderFileList());
-
-  function renderFileList() {
-    if (!allFiles.length) { fileListSection.style.display = 'none'; return; }
-    fileListSection.style.display = 'block';
-    fileListInner.innerHTML = '';
-    const query = searchInput.value.toLowerCase().trim();
-    let shown = 0;
-    for (const file of allFiles) {
-      const name = getKey(file);
-      if (query && !name.toLowerCase().includes(query)) continue;
-      const ext = getExt(name);
-      const willSkip = excludedExts.has(ext);
+  function renderFileList(){
+    if(!allFiles.length){fileListSection.style.display='none';return;}
+    fileListSection.style.display='block';
+    fileListInner.innerHTML='';
+    const q=searchInput.value.toLowerCase().trim();
+    let shown=0;
+    for(const file of allFiles){
+      const name=getKey(file);
+      if(q&&!name.toLowerCase().includes(q))continue;
+      const ext=getExt(name);
+      const skip=excludedExts.has(ext);
       shown++;
-      const div = document.createElement('div');
-      div.className = 'file-item';
-      div.innerHTML = `
-        <span class="icon icon-sm" style="opacity:0.4">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><polyline points="14 2 14 8 20 8"/></svg>
-        </span>
-        <span class="fname">${esc(name)}</span>
-        <span class="fsize">${formatBytes(file.size)}</span>
-        <span class="fstatus ${willSkip ? 'skip' : 'ok'}">${willSkip ? 'excluded' : 'ok'}</span>
-      `;
-      fileListInner.appendChild(div);
+      const d=document.createElement('div');
+      d.className='file-item';
+      d.innerHTML=`<span class="icon icon-sm" style="opacity:0.4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><polyline points="14 2 14 8 20 8"/></svg></span><span class="fname">${esc(name)}</span><span class="fsize">${formatBytes(file.size)}</span><span class="fstatus ${skip?'skip':'ok'}">${skip?'excluded':'ok'}</span>`;
+      fileListInner.appendChild(d);
     }
-    fileCountLabel.textContent = `${allFiles.length} file${allFiles.length !== 1 ? 's' : ''}` + (query ? ` (${shown} shown)` : '');
+    fileCountLabel.textContent=`${allFiles.length} file${allFiles.length!==1?'s':''}${q?` (${shown} shown)`:''}`;
   }
 
-  // ── Split mode ──
-  splitModeEl.addEventListener('change', () => {
-    const mode = splitModeEl.value;
-    if (mode === 'none') { splitValueRow.classList.add('hidden'); }
-    else {
-      splitValueRow.classList.remove('hidden');
-      if (mode === 'chars') {
-        splitValueLabel.textContent = 'Max characters per batch';
-        splitValueEl.value = '50000';
-        splitHintEl.textContent = 'Files grouped until character limit is reached.';
-      } else {
-        splitValueLabel.textContent = 'Number of batches';
-        splitValueEl.value = '2';
-        splitHintEl.textContent = 'Files evenly split across the given number.';
-      }
+  splitModeEl.addEventListener('change',()=>{
+    const m=splitModeEl.value;
+    if(m==='none'){splitValueRow.classList.add('hidden');}
+    else{splitValueRow.classList.remove('hidden');
+      if(m==='chars'){splitValueLabel.textContent='Max characters per batch';splitValueEl.value='50000';splitHintEl.textContent='Files grouped until character limit is reached.';}
+      else{splitValueLabel.textContent='Number of batches';splitValueEl.value='2';splitHintEl.textContent='Files evenly split across the given number.';}
     }
   });
 
-  // ── Exclusion Tags ──
-  function addExts(raw) {
-    let changed = false;
-    raw.split(',').forEach(s => {
-      let ext = s.trim().toLowerCase();
-      if (!ext) return;
-      if (!ext.startsWith('.')) ext = '.' + ext;
-      if (!excludedExts.has(ext)) { excludedExts.add(ext); changed = true; }
-    });
-    if (changed) { renderTags(); renderFileList(); }
+  function addExts(raw){
+    let c=false;
+    raw.split(',').forEach(s=>{let e=s.trim().toLowerCase();if(!e)return;if(!e.startsWith('.'))e='.'+e;if(!excludedExts.has(e)){excludedExts.add(e);c=true;}});
+    if(c){renderTags();renderFileList();}
   }
 
-  function removeExt(ext) {
-    excludedExts.delete(ext);
-    renderTags(); renderFileList(); syncPresetStates();
-  }
+  function removeExt(ext){excludedExts.delete(ext);renderTags();renderFileList();syncPresetStates();}
 
-  function renderTags() {
-    tagListEl.innerHTML = '';
-    const sorted = [...excludedExts].sort();
-    if (!sorted.length) {
-      tagListEl.innerHTML = '<div class="empty-state">No exclusions — all file types included.</div>';
-      return;
-    }
-    for (const ext of sorted) {
-      const span = document.createElement('span');
-      span.className = 'tag';
-      span.innerHTML = `${esc(ext)} <span class="remove" data-ext="${esc(ext)}">×</span>`;
-      span.querySelector('.remove').addEventListener('click', () => removeExt(ext));
-      tagListEl.appendChild(span);
+  function renderTags(){
+    tagListEl.innerHTML='';
+    const sorted=[...excludedExts].sort();
+    if(!sorted.length){tagListEl.innerHTML='<div class="empty-state">No exclusions — all file types included.</div>';return;}
+    for(const ext of sorted){
+      const s=document.createElement('span');s.className='tag';
+      s.innerHTML=`${esc(ext)} <span class="remove">×</span>`;
+      s.querySelector('.remove').addEventListener('click',()=>removeExt(ext));
+      tagListEl.appendChild(s);
     }
   }
 
-  extAddBtn.addEventListener('click', () => { addExts(extInput.value); extInput.value = ''; });
-  extInput.addEventListener('keydown', e => { if (e.key === 'Enter') { addExts(extInput.value); extInput.value = ''; } });
+  extAddBtn.addEventListener('click',()=>{addExts(extInput.value);extInput.value='';});
+  extInput.addEventListener('keydown',e=>{if(e.key==='Enter'){addExts(extInput.value);extInput.value='';}});
 
-  // ── Presets ──
-  document.querySelectorAll('.preset-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const key = btn.dataset.preset;
-      if (key === 'clear') {
-        excludedExts.clear(); activePresets.clear();
-        document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
-        renderTags(); renderFileList(); return;
-      }
-      const exts = PRESETS[key];
-      if (!exts) return;
-      if (activePresets.has(key)) {
-        activePresets.delete(key); btn.classList.remove('active');
-        exts.forEach(e => excludedExts.delete(e));
-      } else {
-        activePresets.add(key); btn.classList.add('active');
-        exts.forEach(e => excludedExts.add(e));
-      }
-      renderTags(); renderFileList();
+  document.querySelectorAll('.preset-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const key=btn.dataset.preset;
+      if(key==='clear'){excludedExts.clear();activePresets.clear();document.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('active'));renderTags();renderFileList();return;}
+      const exts=PRESETS[key];if(!exts)return;
+      if(activePresets.has(key)){activePresets.delete(key);btn.classList.remove('active');exts.forEach(e=>excludedExts.delete(e));}
+      else{activePresets.add(key);btn.classList.add('active');exts.forEach(e=>excludedExts.add(e));}
+      renderTags();renderFileList();
     });
   });
 
-  function syncPresetStates() {
-    for (const [key, exts] of Object.entries(PRESETS)) {
-      const btn = document.querySelector(`[data-preset="${key}"]`);
-      if (!btn) continue;
-      const allPresent = exts.every(e => excludedExts.has(e));
-      if (allPresent) { activePresets.add(key); btn.classList.add('active'); }
-      else { activePresets.delete(key); btn.classList.remove('active'); }
+  function syncPresetStates(){
+    for(const[key,exts]of Object.entries(PRESETS)){
+      const btn=document.querySelector(`[data-preset="${key}"]`);if(!btn)continue;
+      const all=exts.every(e=>excludedExts.has(e));
+      if(all){activePresets.add(key);btn.classList.add('active');}
+      else{activePresets.delete(key);btn.classList.remove('active');}
     }
   }
 
   renderTags();
 
-  // ── Helpers ──
-  function getExt(name) { const i = name.lastIndexOf('.'); return i >= 0 ? name.slice(i).toLowerCase() : ''; }
-  function formatBytes(bytes) { if (bytes < 1024) return bytes + ' B'; if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB'; return (bytes / 1048576).toFixed(1) + ' MB'; }
-  function esc(str) { return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function getExt(n){const i=n.lastIndexOf('.');return i>=0?n.slice(i).toLowerCase():'';}
+  function formatBytes(b){if(b<1024)return b+' B';if(b<1048576)return(b/1024).toFixed(1)+' KB';return(b/1048576).toFixed(1)+' MB';}
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
-  function likelyBinary(buffer) {
-    const bytes = new Uint8Array(buffer.slice(0, 8192));
-    let suspicious = 0;
-    for (let i = 0; i < bytes.length; i++) {
-      const b = bytes[i];
-      if (b === 0) return true;
-      if ((b < 7 || (b > 13 && b < 32)) && b !== 9) suspicious++;
-    }
-    return bytes.length > 0 && suspicious / bytes.length > 0.15;
+  function likelyBinary(buf){
+    const bytes=new Uint8Array(buf.slice(0,8192));let s=0;
+    for(let i=0;i<bytes.length;i++){const b=bytes[i];if(b===0)return true;if((b<7||(b>13&&b<32))&&b!==9)s++;}
+    return bytes.length>0&&s/bytes.length>0.15;
   }
 
-  async function readFile(file) {
-    const buffer = await file.arrayBuffer();
-    if (likelyBinary(buffer)) return { ok: false, reason: 'binary' };
-    try { return { ok: true, text: new TextDecoder('utf-8', { fatal: false }).decode(buffer) }; }
-    catch { return { ok: false, reason: 'unreadable' }; }
+  async function readFile(file){
+    const buf=await file.arrayBuffer();
+    if(likelyBinary(buf))return{ok:false,reason:'binary'};
+    try{return{ok:true,text:new TextDecoder('utf-8',{fatal:false}).decode(buf)};}
+    catch{return{ok:false,reason:'unreadable'};}
   }
 
-  function buildLabel(index, file, mode) {
-    const name = getKey(file);
-    if (mode === 'numbered') return `file.${index}:`;
-    if (mode === 'filename') return `${name}:`;
-    return `file.${index} — ${name}:`;
+  function buildLabel(i,file,mode){
+    const n=getKey(file);
+    if(mode==='numbered')return`file.${i}:`;
+    if(mode==='filename')return`${n}:`;
+    return`file.${i} — ${n}:`;
   }
 
-  function splitByChars(entries, max) {
-    const batches = []; let cur = '';
-    for (const e of entries) {
-      const add = cur ? '\n\n' + e : e;
-      if (cur && cur.length + add.length > max) { batches.push(cur); cur = e; }
-      else { cur += add; }
-    }
-    if (cur) batches.push(cur);
+  function splitByChars(entries,max){
+    const batches=[];let cur='';
+    for(const e of entries){const add=cur?'\n\n'+e:e;if(cur&&cur.length+add.length>max){batches.push(cur);cur=e;}else{cur+=add;}}
+    if(cur)batches.push(cur);return batches;
+  }
+
+  function splitByCount(entries,count){
+    if(count<=1)return[entries.join('\n\n')];
+    const size=Math.ceil(entries.length/count);const batches=[];
+    for(let i=0;i<entries.length;i+=size)batches.push(entries.slice(i,i+size).join('\n\n'));
     return batches;
   }
 
-  function splitByCount(entries, count) {
-    if (count <= 1) return [entries.join('\n\n')];
-    const size = Math.ceil(entries.length / count);
-    const batches = [];
-    for (let i = 0; i < entries.length; i += size) batches.push(entries.slice(i, i + size).join('\n\n'));
-    return batches;
+  async function copyText(text){try{await navigator.clipboard.writeText(text);return true;}catch{return false;}}
+
+  function showToast(msg){toastEl.textContent=msg;toastEl.classList.add('show');setTimeout(()=>toastEl.classList.remove('show'),2200);}
+
+  function downloadTxt(text,filename){
+    const blob=new Blob([text],{type:'text/plain'});const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');a.href=url;a.download=filename;a.click();URL.revokeObjectURL(url);
   }
 
-  async function copyText(text) {
-    try { await navigator.clipboard.writeText(text); return true; } catch { return false; }
-  }
-
-  function showToast(msg) {
-    toastEl.textContent = msg;
-    toastEl.classList.add('show');
-    setTimeout(() => toastEl.classList.remove('show'), 2200);
-  }
-
-  function downloadTxt(text, filename) {
-    const blob = new Blob([text], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a'); a.href = url; a.download = filename; a.click();
-    URL.revokeObjectURL(url);
-  }
-
-  // ── Syntax Highlighting ──
-  function highlightBatch(rawText) {
-    const lines = rawText.split('\n');
-    const highlighted = [];
-
-    // Detect file label pattern
-    const fileLabelRegex = /^(file\.\d+(?:\s*—\s*.+)?:|.+\.\w+:)$/;
-
-    for (const line of lines) {
-      if (fileLabelRegex.test(line.trim())) {
-        highlighted.push(`<span class="line-file-label">${esc(line)}</span>`);
-      } else if (line.trim() === '') {
-        highlighted.push('');
-      } else if (line.trim().startsWith('[Skipped') || line.trim().startsWith('[Excluded')) {
-        highlighted.push(`<span class="syn-skipped">${esc(line)}</span>`);
-      } else {
-        highlighted.push(highlightLine(line));
-      }
+  function highlightBatch(raw){
+    const lines=raw.split('\n');const hl=[];
+    const re=/^(file\.\d+(?:\s*—\s*.+)?:|.+\.\w+:)$/;
+    for(const line of lines){
+      if(re.test(line.trim()))hl.push(`<span class="line-file-label">${esc(line)}</span>`);
+      else if(line.trim()==='')hl.push('');
+      else if(line.trim().startsWith('[Skipped')||line.trim().startsWith('[Excluded'))hl.push(`<span class="syn-skipped">${esc(line)}</span>`);
+      else hl.push(highlightLine(line));
     }
-
-    return highlighted.join('\n');
+    return hl.join('\n');
   }
 
-  function highlightLine(line) {
-    let out = esc(line);
-
-    // Comments
-    out = out.replace(/(\/\/.*)$/gm, '<span class="syn-comment">$1</span>');
-    out = out.replace(/(#.*)$/gm, '<span class="syn-comment">$1</span>');
-    out = out.replace(/(&lt;!--.+?--&gt;)/g, '<span class="syn-comment">$1</span>');
-
-    // Strings
-    out = out.replace(/(&quot;(?:[^&]|&(?!quot;))*?&quot;)/g, '<span class="syn-string">$1</span>');
-    out = out.replace(/(&#039;(?:[^&]|&(?!#039;))*?&#039;)/g, '<span class="syn-string">$1</span>');
-    out = out.replace(/("(?:[^"\\]|\\.)*?")/g, '<span class="syn-string">$1</span>');
-    out = out.replace(/('(?:[^'\\]|\\.)*?')/g, '<span class="syn-string">$1</span>');
-    out = out.replace(/(`(?:[^`\\]|\\.)*?`)/g, '<span class="syn-string">$1</span>');
-
-    // Numbers
-    out = out.replace(/\b(\d+\.?\d*)\b/g, '<span class="syn-number">$1</span>');
-
-    // Keywords
-    const keywords = ['function','const','let','var','return','if','else','for','while','do','switch','case','break','continue','class','extends','import','export','from','default','new','this','super','try','catch','finally','throw','async','await','yield','of','in','typeof','instanceof','void','delete','true','false','null','undefined','def','print','self','elif','except','lambda','with','as','pass','raise','None','True','False','and','or','not','is','int','str','float','list','dict','set','tuple'];
-    for (const kw of keywords) {
-      const re = new RegExp(`\\b(${kw})\\b`, 'g');
-      out = out.replace(re, '<span class="syn-keyword">$1</span>');
-    }
-
-    // HTML Tags
-    out = out.replace(/(&lt;\/?)([\w-]+)/g, '<span class="syn-tag">$1$2</span>');
-
-    // Function calls
-    out = out.replace(/\b([a-zA-Z_]\w*)\s*\(/g, '<span class="syn-func">$1</span>(');
-
-    // Operators
-    out = out.replace(/(===|!==|==|!=|&lt;=|&gt;=|=&gt;|\+\+|--|\|\||&amp;&amp;)/g, '<span class="syn-operator">$1</span>');
-
-    // Brackets
-    out = out.replace(/([{}()\[\]])/g, '<span class="syn-bracket">$1</span>');
-
-    return out;
+  function highlightLine(line){
+    let o=esc(line);
+    o=o.replace(/(\/\/.*)$/gm,'<span class="syn-comment">$1</span>');
+    o=o.replace(/(#.*)$/gm,'<span class="syn-comment">$1</span>');
+    o=o.replace(/(&lt;!--.+?--&gt;)/g,'<span class="syn-comment">$1</span>');
+    o=o.replace(/("(?:[^"\\]|\\.)*?")/g,'<span class="syn-string">$1</span>');
+    o=o.replace(/('(?:[^'\\]|\\.)*?')/g,'<span class="syn-string">$1</span>');
+    o=o.replace(/(`(?:[^`\\]|\\.)*?`)/g,'<span class="syn-string">$1</span>');
+    o=o.replace(/\b(\d+\.?\d*)\b/g,'<span class="syn-number">$1</span>');
+    const kw=['function','const','let','var','return','if','else','for','while','do','switch','case','break','continue','class','extends','import','export','from','default','new','this','super','try','catch','finally','throw','async','await','yield','of','in','typeof','instanceof','void','delete','true','false','null','undefined','def','print','self','elif','except','lambda','with','as','pass','raise','None','True','False','and','or','not','is','int','str','float','list','dict','set','tuple'];
+    for(const k of kw){o=o.replace(new RegExp(`\\b(${k})\\b`,'g'),'<span class="syn-keyword">$1</span>');}
+    o=o.replace(/(&lt;\/?)([\w-]+)/g,'<span class="syn-tag">$1$2</span>');
+    o=o.replace(/\b([a-zA-Z_]\w*)\s*\(/g,'<span class="syn-func">$1</span>(');
+    o=o.replace(/(===|!==|==|!=|&lt;=|&gt;=|=&gt;|\+\+|--|\|\||&amp;&amp;)/g,'<span class="syn-operator">$1</span>');
+    o=o.replace(/([{}()\[\]])/g,'<span class="syn-bracket">$1</span>');
+    return o;
   }
 
-  // ── Build ──
-  buildBtn.addEventListener('click', async () => {
-    if (!allFiles.length) { showToast('Select files first'); return; }
+  buildBtn.addEventListener('click',async()=>{
+    if(!allFiles.length){showToast('Select files first');return;}
+    buildBtn.innerHTML='<span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span> Processing...';
+    buildBtn.disabled=true;
+    await new Promise(r=>setTimeout(r,50));
 
-    buildBtn.innerHTML = '<span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span> Processing...';
-    buildBtn.disabled = true;
+    const labelMode=labelModeEl.value;
+    const splitMode=splitModeEl.value;
+    const splitValue=parseInt(splitValueEl.value||'1',10);
+    const skipBinary=skipBinaryEl.checked;
+    const includePlaceholder=includePlaceholderEl.checked;
+    const showPreview=showPreviewEl.checked;
 
-    // Small delay so UI updates
-    await new Promise(r => setTimeout(r, 50));
+    const sorted=[...allFiles].sort((a,b)=>getKey(a).toLowerCase().localeCompare(getKey(b).toLowerCase()));
 
-    const labelMode = labelModeEl.value;
-    const splitMode = splitModeEl.value;
-    const splitValue = parseInt(splitValueEl.value || '1', 10);
-    const skipBinary = skipBinaryEl.checked;
-    const includePlaceholder = includePlaceholderEl.checked;
-    const showPreview = showPreviewEl.checked;
+    const entries=[];let included=0,skipped=0,idx=1;
 
-    const sorted = [...allFiles].sort((a, b) => getKey(a).toLowerCase().localeCompare(getKey(b).toLowerCase()));
-
-    const entries = [];
-    let included = 0, skipped = 0, idx = 1;
-
-    for (const file of sorted) {
-      const name = getKey(file);
-      const ext = getExt(name);
-
-      if (excludedExts.has(ext)) {
-        if (includePlaceholder) { entries.push(`${buildLabel(idx, file, labelMode)}\n[Excluded: ${name}]`); idx++; }
-        skipped++; continue;
-      }
-
-      const result = await readFile(file);
-
-      if (!result.ok) {
-        if (skipBinary) {
-          if (includePlaceholder) { entries.push(`${buildLabel(idx, file, labelMode)}\n[Skipped (${result.reason}): ${name}]`); idx++; }
-          skipped++;
-        } else {
-          entries.push(`${buildLabel(idx, file, labelMode)}\n[${result.reason}: ${name}]`);
-          idx++; included++;
-        }
+    for(const file of sorted){
+      const name=getKey(file);const ext=getExt(name);
+      if(excludedExts.has(ext)){if(includePlaceholder){entries.push(`${buildLabel(idx,file,labelMode)}\n[Excluded: ${name}]`);idx++;}skipped++;continue;}
+      const result=await readFile(file);
+      if(!result.ok){
+        if(skipBinary){if(includePlaceholder){entries.push(`${buildLabel(idx,file,labelMode)}\n[Skipped (${result.reason}): ${name}]`);idx++;}skipped++;}
+        else{entries.push(`${buildLabel(idx,file,labelMode)}\n[${result.reason}: ${name}]`);idx++;included++;}
         continue;
       }
-
-      entries.push(`${buildLabel(idx, file, labelMode)}\n${result.text}`);
-      idx++; included++;
+      entries.push(`${buildLabel(idx,file,labelMode)}\n${result.text}`);idx++;included++;
     }
 
     let batches;
-    if (splitMode === 'none') batches = entries.length ? [entries.join('\n\n')] : [];
-    else if (splitMode === 'count') batches = splitByCount(entries, Math.max(1, splitValue));
-    else batches = splitByChars(entries, Math.max(1, splitValue));
+    if(splitMode==='none')batches=entries.length?[entries.join('\n\n')]:[];
+    else if(splitMode==='count')batches=splitByCount(entries,Math.max(1,splitValue));
+    else batches=splitByChars(entries,Math.max(1,splitValue));
 
-    lastBatches = batches;
-
-    document.getElementById('statFiles').textContent = included;
-    document.getElementById('statSkipped').textContent = skipped;
-    document.getElementById('statBatches').textContent = batches.length;
-
+    lastBatches=batches;
+    document.getElementById('statFiles').textContent=included;
+    document.getElementById('statSkipped').textContent=skipped;
+    document.getElementById('statBatches').textContent=batches.length;
     outputSection.classList.remove('hidden');
-    batchListEl.innerHTML = '';
+    batchListEl.innerHTML='';
 
-    batches.forEach((batch, i) => {
-      const lines = batch.split('\n').length;
-      const card = document.createElement('div');
-      card.className = 'batch-card';
-
-      let previewHtml = '';
-      if (showPreview) {
-        previewHtml = `
-          <div class="code-view">
-            <pre>${highlightBatch(batch)}</pre>
-            <textarea class="hidden-textarea">${esc(batch)}</textarea>
-          </div>
-        `;
-      }
-
-      card.innerHTML = `
+    batches.forEach((batch,i)=>{
+      const lines=batch.split('\n').length;
+      const card=document.createElement('div');card.className='batch-card';
+      let preview='';
+      if(showPreview){preview=`<div class="code-view"><pre>${highlightBatch(batch)}</pre><textarea class="hidden-textarea">${esc(batch)}</textarea></div>`;}
+      card.innerHTML=`
         <div class="batch-top">
-          <div>
-            <div class="batch-title">Batch ${i + 1}</div>
-            <div class="batch-meta">${batch.length.toLocaleString()} chars &middot; ${lines.toLocaleString()} lines</div>
-          </div>
-          <span class="batch-number">${i + 1} / ${batches.length}</span>
+          <div><div class="batch-title">Batch ${i+1}</div><div class="batch-meta">${batch.length.toLocaleString()} chars · ${lines.toLocaleString()} lines</div></div>
+          <span class="batch-number">${i+1} / ${batches.length}</span>
         </div>
-        ${previewHtml}
+        ${preview}
         <div class="btn-row">
-          <button class="btn btn-primary btn-sm copy-btn">
-            <span class="icon icon-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></span>
-            Copy
-          </button>
-          <button class="btn btn-outline btn-sm dl-btn">
-            <span class="icon icon-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg></span>
-            Download
-          </button>
-        </div>
-      `;
+          <button class="btn btn-primary btn-sm copy-btn"><span class="icon icon-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></span>Copy</button>
+          <button class="btn btn-outline btn-sm dl-btn"><span class="icon icon-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg></span>Download</button>
+        </div>`;
 
-      if (showPreview) {
-        const hiddenTa = card.querySelector('.hidden-textarea');
-        hiddenTa.value = batch;
-      }
+      if(showPreview){card.querySelector('.hidden-textarea').value=batch;}
 
-      card.querySelector('.copy-btn').addEventListener('click', async () => {
-        const ok = await copyText(batch);
-        if (ok) showToast(`Batch ${i + 1} copied`);
-        else {
-          if (showPreview) {
-            const ta = card.querySelector('.hidden-textarea');
-            ta.style.cssText = 'position:static;width:100%;height:200px;opacity:1;margin-top:10px;background:#050507;color:#fafafa;border:1px solid #27272a;border-radius:8px;padding:12px;font-family:monospace;font-size:12px;';
-            ta.focus(); ta.select();
-            showToast('Selected — copy manually');
-          } else { showToast('Clipboard unavailable'); }
+      card.querySelector('.copy-btn').addEventListener('click',async()=>{
+        const ok=await copyText(batch);
+        if(ok)showToast(`Batch ${i+1} copied`);
+        else{
+          if(showPreview){const ta=card.querySelector('.hidden-textarea');ta.style.cssText='position:static;width:100%;height:200px;opacity:1;margin-top:10px;background:#050507;color:#fafafa;border:1px solid #27272a;border-radius:8px;padding:12px;font-family:monospace;font-size:12px;';ta.focus();ta.select();showToast('Selected — copy manually');}
+          else showToast('Clipboard unavailable');
         }
       });
 
-      card.querySelector('.dl-btn').addEventListener('click', () => downloadTxt(batch, `batch_${i + 1}.txt`));
-
+      card.querySelector('.dl-btn').addEventListener('click',()=>downloadTxt(batch,`batch_${i+1}.txt`));
       batchListEl.appendChild(card);
     });
 
-    buildBtn.innerHTML = '<span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span> Build Batches';
-    buildBtn.disabled = false;
-    outputSection.scrollIntoView({ behavior: 'smooth' });
+    buildBtn.innerHTML='<span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span> Build Batches';
+    buildBtn.disabled=false;
+    outputSection.scrollIntoView({behavior:'smooth'});
   });
 
-  copyAllBtn.addEventListener('click', async () => {
-    if (!lastBatches.length) return;
-    const ok = await copyText(lastBatches.join('\n\n'));
-    if (ok) showToast('All batches copied');
-    else showToast('Clipboard unavailable');
+  copyAllBtn.addEventListener('click',async()=>{
+    if(!lastBatches.length)return;
+    const ok=await copyText(lastBatches.join('\n\n'));
+    if(ok)showToast('All batches copied');else showToast('Clipboard unavailable');
   });
 
-  downloadAllBtn.addEventListener('click', () => {
-    if (!lastBatches.length) return;
-    if (lastBatches.length === 1) downloadTxt(lastBatches[0], 'all_batches.txt');
-    else lastBatches.forEach((b, i) => downloadTxt(b, `batch_${i + 1}.txt`));
+  downloadAllBtn.addEventListener('click',()=>{
+    if(!lastBatches.length)return;
+    if(lastBatches.length===1)downloadTxt(lastBatches[0],'all_batches.txt');
+    else lastBatches.forEach((b,i)=>downloadTxt(b,`batch_${i+1}.txt`));
   });
-
 </script>
 </body>
 </html>
